@@ -1,25 +1,30 @@
-import { useState } from 'react'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { useState } from "react";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 
-import Home from './Components/Home';
-import Movie from './Components/Movie';
+import Home from "./Components/Home";
+import Movie from "./Components/Movie";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home/>}>
-      <Route path="/Movie" element={<Movie />} />
+    <Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/movie" element={<Movie />} />
     </Route>
   )
-)
-function App({routes}) {
-
+);
+function App({ routes }) {
   return (
     <>
       <div className="the-body">
-      <RouterProvider router={router}/>
+        <RouterProvider router={router} />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
