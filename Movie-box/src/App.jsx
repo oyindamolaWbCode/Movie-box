@@ -7,7 +7,7 @@ import Movie from './Components/Movie';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Home/>}>
-      <Route path="movie" element={<Movie />} />
+      <Route path="/Movie" element={<Movie />} />
     </Route>
   )
 )
