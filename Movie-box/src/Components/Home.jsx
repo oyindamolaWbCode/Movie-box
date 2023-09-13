@@ -7,6 +7,7 @@ import menu from "../assets/Menu.png";
 import mv from "../assets/MV.png";
 import tomatoes from "../assets/PngItem_1381056 1.png";
 import youtube from "../assets/Button.png";
+import anchor from "../assets/Chevron right.png"
 
 const Home = () => {
     return(
@@ -40,8 +41,16 @@ const Home = () => {
                   </div>
                 </div>
                 <p className='summary'>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
-
                 <img src={youtube} alt="" />
+              </div>
+            </div>
+            <div className='movie-category'>
+              <div className='featured-arrow'>
+                <h4 className='featured'>Featured Movie</h4>
+                <div className='more'>
+                  <p style={{color: "#BE123C"}}>See More</p>
+                  {/* <img src={anchor} alt="" className='anchor' /> */}
+                </div>
               </div>
             </div>
           </div>

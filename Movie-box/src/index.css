@@ -106,3 +106,28 @@ margin-left: -50px;
   width: 400px;
   margin: 15px 0px;
 }
+
+.movie-category{
+  padding: 40px 100px;
+}
+
+.featured-arrow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.more{
+  display: flex;
+  
+}
+
+.anchor{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.featured-arrow{
+  margin-bottom: 30px;
+}
