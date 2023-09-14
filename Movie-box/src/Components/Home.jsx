@@ -8,6 +8,7 @@ import mv from "../assets/MV.png";
 import tomatoes from "../assets/PngItem_1381056 1.png";
 import youtube from "../assets/Button.png";
 import anchor from "../assets/Chevron right.png"
+import ExtractedMovies from "./ExtractedMovies"
 
 const Home = () => {
     return(
@@ -52,6 +53,7 @@ const Home = () => {
                   {/* <img src={anchor} alt="" className='anchor' /> */}
                 </div>
               </div>
+              < ExtractedMovies />
             </div>
           </div>
       );

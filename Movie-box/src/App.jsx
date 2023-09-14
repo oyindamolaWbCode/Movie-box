@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 
 import Home from "./Components/Home";
-import Movie from "./Components/Movie";
+import MovieDetails from "./Components/MovieDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />} />
-      <Route path="/movie" element={<Movie />} />
+      <Route path="/movies/:id" Component={MovieDetails} />
     </Route>
   )
 );
