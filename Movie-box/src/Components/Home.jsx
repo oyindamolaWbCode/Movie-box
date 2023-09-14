@@ -31,16 +31,20 @@ const Home = () => {
               </div>
               <div className='trendy'>
                 <h1 className='title'>John Wick 3 : <br />Parabellum</h1>
-                <div className='recommendation'>
-                  <div className='mv'>
-                    <img src={mv} alt="" className='no-shrink'/>
-                    <h6 className='rating'>86.0/100</h6>
-                  </div>
-                  <div className='reviews'>
-                    <img src={tomatoes} alt="" className='no-shrink'/>
-                    <h6 className='rating'>97%</h6>
-                  </div>
-                </div>
+                <p className="rate">
+              <span>
+                <span>
+                  <img src={mv} alt="" />
+                </span>
+                <span style={{color: "white"}}>86.0 / 100</span>
+              </span>
+              <span>
+                <span>
+                  <img src={tomatoes} alt="" />
+                </span>
+                <span style={{color: "white"}}>97%</span>
+              </span>
+            </p>
                 <p className='summary'>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
                 <img src={youtube} alt="" />
               </div>
