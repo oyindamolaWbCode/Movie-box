@@ -15,6 +15,7 @@ import tv from "../assets/tv.png";
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [videoKey, setVideoKey] = useState(""); 
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -26,6 +27,22 @@ const MovieDetails = () => {
         );
         console.log(response);
         setMovie(response.data);
+
+        //     } catch (error) {
+        //       console.error("Error fetching movie details:", error);
+        //     }
+        //   };
+
+        //   fetchMovieDetails();
+        // }, [id]);
+        // Fetch the video key
+        const videoResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
+        );
+
+        if (videoResponse.data.results.length > 0) {
+          setVideoKey(videoResponse.data.results[0].key);
+        }
       } catch (error) {
         console.error("Error fetching movie details:", error);
       }
@@ -33,7 +50,6 @@ const MovieDetails = () => {
 
     fetchMovieDetails();
   }, [id]);
-
   if (!movie) {
     return <div>Loading...</div>;
   }
@@ -91,30 +107,34 @@ const MovieDetails = () => {
           </div>
         </div>
 
-          <div className="rightSide">
-            <div className="videoWrap">
-              <iframe title="Youtube Video player" src="" allowFullScreen>
-                #document
-              </iframe>
-            </div>
-            <div className="AllDetails">
-              <div className="info">
-                <div className="info-title">
-                  <h2 data-testid="movie-title">{movie.title}</h2>
-                  <p className="details-para" data-testid="movie-release-date">
-                    <span>{movie.release_date}</span>
-                  </p>
-                  <p className="details-para" data-testid="movie-runtime">
-                    <span>{movie.runtime}</span>
-                  </p>
-                </div>
-                <p className="genre">
-                  <span>
-                    {movie.genres.map((genre) => genre.name).join(", ")}
-                  </span>
+        <div className="rightSide">
+          <div className="videoWrap">
+            {videoKey && (
+              <iframe
+                title="Youtube Video player"
+                src={`https://www.youtube.com/embed/${videoKey}`}
+                allowFullScreen
+              />
+            )}
+          </div>
+          <div className="AllDetails">
+            <div className="info">
+              <div className="info-title">
+                <h2 data-testid="movie-title">{movie.title}</h2>
+                <p className="details-para" data-testid="movie-release-date">
+                  <span>{movie.release_date}</span>
+                </p>
+                <p className="details-para" data-testid="movie-runtime">
+                  <span>{movie.runtime}</span>
                 </p>
               </div>
-              <div className="Infos">
+              <p className="genre">
+                <span>
+                  {movie.genres.map((genre) => genre.name).join(", ")}
+                </span>
+              </p>
+            </div>
+            <div className="Infos">
               <div className="addedInfo">
                 <div className="inform">
                   <p className="details-para" data-testid="movie-overview">
@@ -132,9 +152,9 @@ const MovieDetails = () => {
                     </span>
                   </p>
                   <p style={{ color: "black" }}>
-                     Stars : 
+                    Stars :
                     <span style={{ color: "red" }}>
-                     Tom Cruise, Jennifer Connelly, Miles Teller
+                      Tom Cruise, Jennifer Connelly, Miles Teller
                     </span>
                   </p>
                 </div>
@@ -144,9 +164,9 @@ const MovieDetails = () => {
                 <img src={group51} alt="" />
                 <img src={group52} alt="" />
               </div>
-              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   );
