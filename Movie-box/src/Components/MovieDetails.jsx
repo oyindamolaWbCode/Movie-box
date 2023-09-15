@@ -44,13 +44,13 @@ const MovieDetails = () => {
         <div className="leftSide">
           <div className="Left-Nav">
             <div className="TheSides">
-               <span>
-                <img src={tv} alt="" />
-                <h2>MovieBox</h2>
+              <span style={{ padding: "25px" }}>
+                <img src={tv} alt="" className="MovieSide" />
+                <span>MovieBox</span>
               </span>
-            </div>  
+            </div>
             <ul>
-              <li>
+              <li style={{ marginTop: "40px" }}>
                 <a aria-label="Home" href="/">
                   <img src={home} alt="" />
                   <span>Home</span>
@@ -74,7 +74,14 @@ const MovieDetails = () => {
                   <span>Upcoming</span>
                 </a>
               </li>
-              <li>
+            </ul>
+            <div className="AsideWord">
+              <h4>Play movie quizes and earn free tickets</h4>
+              <p>50k people are playing now</p>
+              <a href="/">start playing</a>
+            </div>
+            <ul>
+              <li style={{ marginTop: "60px" }}>
                 <a aria-label="Home" href="/">
                   <img src={logout} alt="" />
                   <span>LogOut</span>
@@ -83,20 +90,63 @@ const MovieDetails = () => {
             </ul>
           </div>
         </div>
-        <span>
-        <div className="rightSide">
-          <h2 data-testid="movie-title">{movie.title}</h2>
-          <p className="details-para" data-testid="movie-release-date">
-            Release Date (UTC): {movie.release_date}
-          </p>
-          <p className="details-para" data-testid="movie-runtime">
-            Runtime (minutes): {movie.runtime}
-          </p>
-          <p className="details-para" data-testid="movie-overview">
-            {movie.overview}
-          </p>
-        </div>
-        </span>
+
+          <div className="rightSide">
+            <div className="videoWrap">
+              <iframe title="Youtube Video player" src="" allowFullScreen>
+                #document
+              </iframe>
+            </div>
+            <div className="AllDetails">
+              <div className="info">
+                <div className="info-title">
+                  <h2 data-testid="movie-title">{movie.title}</h2>
+                  <p className="details-para" data-testid="movie-release-date">
+                    <span>{movie.release_date}</span>
+                  </p>
+                  <p className="details-para" data-testid="movie-runtime">
+                    <span>{movie.runtime}</span>
+                  </p>
+                </div>
+                <p className="genre">
+                  <span>
+                    {movie.genres.map((genre) => genre.name).join(", ")}
+                  </span>
+                </p>
+              </div>
+              <div className="Infos">
+              <div className="addedInfo">
+                <div className="inform">
+                  <p className="details-para" data-testid="movie-overview">
+                    {movie.overview}
+                  </p>
+                  <p style={{ color: "black" }}>
+                    Director:{" "}
+                    <span style={{ color: "red" }}>Joseph Kosinski</span>
+                  </p>
+                  <p style={{ color: "black" }}>
+                    Writers :{" "}
+                    <span style={{ color: "red" }}>
+                      {" "}
+                      Jim Cash, Jack Epps Jr, Peter Craig
+                    </span>
+                  </p>
+                  <p style={{ color: "black" }}>
+                     Stars : 
+                    <span style={{ color: "red" }}>
+                     Tom Cruise, Jennifer Connelly, Miles Teller
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="sideInfo">
+                <img src={group50} alt="" />
+                <img src={group51} alt="" />
+                <img src={group52} alt="" />
+              </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   );
