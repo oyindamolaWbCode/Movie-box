@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { HashRouter as Router } from "react-router-dom";
+
 import {
   Route,
   createBrowserRouter,
